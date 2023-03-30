@@ -1,0 +1,76 @@
+.input-area {
+  background-color: rgb(104, 216, 216);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.input-area > input {
+  border-radius: 0.25rem;
+  width: 300px;
+  padding: 6px 12px;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.todo-area {
+  background-color: rgb(255, 255, 193);
+  border-radius: 10px;
+}
+
+.completed-area {
+  background-color: rgb(203, 250, 131);
+  border-radius: 10px;
+}
+
+.title {
+  position: relative;
+  height: 30px;
+  margin-bottom: 20px;
+}
+.title.todo::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  width: 88px;
+  height: 12px;
+  background-color: orange;
+  opacity: 0.8;
+}
+.title.completed::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  width: 138px;
+  height: 12px;
+  background-color: orange;
+  opacity: 0.8;
+}
+.title > h3 {
+  font-weight: bold;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+}
+
+.item {
+  display: flex;
+  justify-content: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.item > p {
+  margin-right: 20px;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+.item > button {
+  margin-right: 10px;
+}/*# sourceMappingURL=style.css.map */
