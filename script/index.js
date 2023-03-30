@@ -14,15 +14,26 @@ const onClickAdd = () => {
   // DONEボタンを作成し、li要素の子要素としてセット
   // ボタンの機能も合わせて設定する
   const btnDone = document.createElement("button");
-  btnDone.className = "btn-done btn btn-success";
+  btnDone.className = "btn btn-success";
   btnDone.innerText = 'DONE';
   btnDone.addEventListener("click", () => {
     const doneTarget = btnDone.parentNode;
     document.getElementById("todo-field").removeChild(doneTarget);
+
+    // BACKボタンを作成し、li要素の子要素としてセット
+    // ボタンの機能も合わせて設定する
     const btnBack = document.createElement("button");
     btnBack.className = "btn btn-warning";
-    btnBack.innerText = "Back to TODO";
+    btnBack.innerText = "Back";
     li.insertBefore(btnBack, btnDone);
+    btnBack.addEventListener("click", () => {
+      document.getElementById("completed-field").removeChild(doneTarget);
+      li.insertBefore(btnDone, btnBack);
+      doneTarget.removeChild(btnBack);
+      document.getElementById("todo-field").appendChild(doneTarget);
+    });
+
+     // DONEボタンの挙動設定の続き
     doneTarget.removeChild(btnDone);
     document.getElementById("completed-field").appendChild(doneTarget);
   });
@@ -31,7 +42,7 @@ const onClickAdd = () => {
   // deleteボタンを作成し、li要素の子要素としてセット
   // ボタンの機能も合わせて設定する
   const btnDelete = document.createElement("button");
-  btnDelete.className = "btn-delete btn btn-secondary";
+  btnDelete.className = "btn btn-secondary";
   btnDelete.innerText = 'Delete';
   btnDelete.addEventListener("click", () => {
     const deleteTarget = btnDelete.parentNode;
@@ -43,10 +54,6 @@ const onClickAdd = () => {
     }
   });
   li.appendChild(btnDelete);
-
-
-
-
 
   // id="todo-field"にここで生成したliタグ要素を追加
   document.getElementById("todo-field").appendChild(li);
